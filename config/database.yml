@@ -21,6 +21,16 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+actions:
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  database: <%= ENV.fetch('PG_DATABASE', 'postgres') %>
+  host:     <%= ENV.fetch('PG_HOST',  'localhost') %>
+  username: <%= ENV.fetch('PG_USER', 'postgres') %>
+  password: <%= ENV.fetch('PG_PASSWORD', 'barbearia') %>
+  port:     <%= ENV.fetch('PG_PORT', 5432) %>
+
 development:
   <<: *default
   database: Projeto_development

@@ -54,6 +54,8 @@ GEM
     activerecord (7.0.2.2)
       activemodel (= 7.0.2.2)
       activesupport (= 7.0.2.2)
+    activerecord-postgresql-adapter (0.0.1)
+      pg
     activestorage (7.0.2.2)
       actionpack (= 7.0.2.2)
       activejob (= 7.0.2.2)
@@ -214,6 +216,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  activerecord-postgresql-adapter
   bootsnap
   capybara
   debug
