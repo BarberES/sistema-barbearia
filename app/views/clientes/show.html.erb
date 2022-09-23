@@ -2,6 +2,27 @@
 
 <%= render @cliente %>
 
+<h1>Agendamentos marcados:</h1>
+<%= render @cliente.agendamentos %>
+
+<h1>Agendar novo horario:</h1>
+
+<%= form_with model:[@cliente, @cliente.agendamentos.build] do |form| %>
+  <div>
+    <%= collection_select(:agendamento, :barbeiro_id, Barbeiro.all, :id, :nome , { prompt: "Selecionar Barbeiro"}) %>
+  </div>
+
+  <div>
+    <%= form.label :initAtendimento, style: "display: block" %>
+    <%= form.datetime_field :initAtendimento %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>
+
 <div>
   <%= link_to "Edit this cliente", edit_cliente_path(@cliente) %> |
   <%= link_to "Back to clientes", clientes_path %>

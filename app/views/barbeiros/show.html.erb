@@ -1,7 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @barbeiro %>
-
+<h1>Sua Agenda</h1>
+<%= render @barbeiro.agendamentos%>
 <div>
   <%= link_to "Edit this barbeiro", edit_barbeiro_path(@barbeiro) %> |
   <%= link_to "Back to barbeiros", barbeiros_path %>

@@ -21,17 +21,9 @@ class AgendamentosController < ApplicationController
 
   # POST /agendamentos or /agendamentos.json
   def create
-    @agendamento = Agendamento.new(agendamento_params)
-
-    respond_to do |format|
-      if @agendamento.save
-        format.html { redirect_to agendamento_url(@agendamento), notice: "Agendamento was successfully created." }
-        format.json { render :show, status: :created, location: @agendamento }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @agendamento.errors, status: :unprocessable_entity }
-      end
-    end
+    @cliente = Cliente.find(params[:cliente_id])
+    @agendamento = @cliente.agendamentos.create(agendamento_params)
+    redirect_to cliente_path(@cliente)
   end
 
   # PATCH/PUT /agendamentos/1 or /agendamentos/1.json

@@ -1,3 +1,3 @@
 class Cliente < ApplicationRecord
-  has_one :agendamentos
+  has_many :agendamentos, :dependent => :destroy
 end
