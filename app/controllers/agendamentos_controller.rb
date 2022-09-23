@@ -23,6 +23,7 @@ class AgendamentosController < ApplicationController
   def create
     @cliente = Cliente.find(params[:cliente_id])
     @agendamento = @cliente.agendamentos.create(agendamento_params)
+    @agendamento.fimAtendimento = @agendamento.initAtendimento + 30.minutes
     redirect_to cliente_path(@cliente)
   end
 
@@ -58,5 +59,10 @@ class AgendamentosController < ApplicationController
     # Only allow a list of trusted parameters through.
     def agendamento_params
       params.require(:agendamento).permit(:initAtendimento, :fimAtendimento, :cliente_id, :barbeiro_id)
+    end
+
+    def set_contador
+      @agendamentos_count = Agendamento.where('fimAtendimento <= ?', DateTime.now).count
+      @ContagemClienteUnicos = Agendamento.select('distinct(cliente_id)').where('finAtendimento <= ?', DateTime.now).count
     end
 end
