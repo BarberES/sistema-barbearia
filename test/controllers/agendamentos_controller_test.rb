@@ -17,7 +17,7 @@ class AgendamentosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create agendamento" do
     assert_difference("Agendamento.count") do
-      post agendamentos_url, params: { agendamento: { data: @agendamento.data, fimAtendimento: @agendamento.fimAtendimento, initAtendimento: @agendamento.initAtendimento } }
+      post agendamentos_url, params: { agendamento: { fimAtendimento: @agendamento.fimAtendimento, initAtendimento: @agendamento.initAtendimento } }
     end
 
     assert_redirected_to agendamento_url(Agendamento.last)
@@ -34,7 +34,7 @@ class AgendamentosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update agendamento" do
-    patch agendamento_url(@agendamento), params: { agendamento: { data: @agendamento.data, fimAtendimento: @agendamento.fimAtendimento, initAtendimento: @agendamento.initAtendimento } }
+    patch agendamento_url(@agendamento), params: { agendamento: { fimAtendimento: @agendamento.fimAtendimento, initAtendimento: @agendamento.initAtendimento } }
     assert_redirected_to agendamento_url(@agendamento)
   end
 

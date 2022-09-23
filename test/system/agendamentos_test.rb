@@ -14,7 +14,6 @@ class AgendamentosTest < ApplicationSystemTestCase
     visit agendamentos_url
     click_on "New agendamento"
 
-    fill_in "Data", with: @agendamento.data
     fill_in "Fimatendimento", with: @agendamento.fimAtendimento
     fill_in "Initatendimento", with: @agendamento.initAtendimento
     click_on "Create Agendamento"
@@ -27,7 +26,6 @@ class AgendamentosTest < ApplicationSystemTestCase
     visit agendamento_url(@agendamento)
     click_on "Edit this agendamento", match: :first
 
-    fill_in "Data", with: @agendamento.data
     fill_in "Fimatendimento", with: @agendamento.fimAtendimento
     fill_in "Initatendimento", with: @agendamento.initAtendimento
     click_on "Update Agendamento"
