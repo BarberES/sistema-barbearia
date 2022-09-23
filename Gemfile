@@ -83,3 +83,4 @@ end
 
 gem "cpf_cnpj"
 gem "ffi"
+gem "validators"
