@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_23_153515) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_23_154121) do
   create_table "agendamentos", force: :cascade do |t|
     t.datetime "initAtendimento"
     t.datetime "fimAtendimento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "cliente_id", null: false
+    t.integer "barbeiro_id", null: false
+    t.index ["barbeiro_id"], name: "index_agendamentos_on_barbeiro_id"
+    t.index ["cliente_id"], name: "index_agendamentos_on_cliente_id"
   end
 
   create_table "barbeiros", force: :cascade do |t|
@@ -37,4 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_23_153515) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "agendamentos", "barbeiros"
+  add_foreign_key "agendamentos", "clientes"
 end
