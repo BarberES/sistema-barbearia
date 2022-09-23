@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @agendamento %>
+
+<div>
+  <%= link_to "Edit this agendamento", edit_agendamento_path(@agendamento) %> |
+  <%= link_to "Back to agendamentos", agendamentos_path %>
+
+  <%= button_to "Destroy this agendamento", @agendamento, method: :delete %>
+</div>

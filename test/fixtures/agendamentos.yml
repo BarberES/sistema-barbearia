@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2022-09-23
+  initAtendimento: 2022-09-23 12:30:27
+  fimAtendimento: 2022-09-23 12:30:27
+
+two:
+  data: 2022-09-23
+  initAtendimento: 2022-09-23 12:30:27
+  fimAtendimento: 2022-09-23 12:30:27
